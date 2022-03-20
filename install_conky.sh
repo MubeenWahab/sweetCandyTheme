@@ -5,4 +5,5 @@ sudo apt update; sudo apt install conky-all -y
 sudo cp /etc/conky/conky.conf ~/.conkyrc
 sudo mkdir -p ~/.config/autostart/
 sudo cp conky.desktop ~/.config/autostart/
-sudo .conkyrc ~/
+sudo mv .conkyrc /home/mubeen/
+conky &
