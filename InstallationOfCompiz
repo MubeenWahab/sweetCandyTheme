@@ -1,0 +1,11 @@
+https://askubuntu.com/questions/702858/how-to-correctly-install-compiz-on-xfce-4
+
+
+I would advise to install/configure it in the following way without any additional PPAs or external window decorators:
+
+    Start by deactivating any compositors: In the Xfce options by unticking "compositing" in the window management settings or, if installed, by removing custom compositors such as Compton from the startup applications.
+    Open a terminal and enter: sudo apt install compiz compiz-plugins compizconfig-settings-manager dconf-editor (The Compiz-Plugins are also needed for additional functionality such as animations and the Cube, dconf-editor for setting up the original Xfce Greybird-theme or another installed theme.)
+    Press Alt+F2 and enter dconf-editor to open it, then change the "theme"-value to your theme, e.g. Greybird in org\gnome\desktop\wm\preferences. You may also look for the "button-layout" value and move the window buttons to either side here. The value works as such left-button1,left-button2:right-button1,right-button2. So by simply entering the button names (minimize, maximize, close), the window buttons will be situated to either side in order, seperated by a comma.
+    Open the CompizConfig Settings Manager from the regular Xfce-settings menu under Extras and at least enable the following plugins: Composite, OpenGL, Window Decoration, Move Window, Resize Window, Place Windows. (You may also want to add such things as Grid for tiling windows and Application Switcher for alt-tabbing windows and so on.) Also make sure that four horizontal workspaces are enabled in the general settings when wanting to use the Cube plugin. To find out what plugins I could/should enable, I used the following sources: How To Set Up Compiz In Xubuntu, Compiz Fusion on Your Desktop: Howto Ubuntu (Video Series), Xubuntu + Compiz = Pretty pretty Xubuntu
+    Press Alt+F2 again and enter compiz --replace to find out if everything works correctly before adding it to the Autostart Applications or changing any statup system files. If there are any problems, a simple logout/reboot will deactivate it again.
+    You may have to use the command bash -c "sleep 2; compiz --replace" in the Autostart Applications, in case it doesn't start with compiz --replace alone. 
