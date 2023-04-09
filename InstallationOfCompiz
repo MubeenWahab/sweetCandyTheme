@@ -9,3 +9,23 @@ I would advise to install/configure it in the following way without any addition
     Open the CompizConfig Settings Manager from the regular Xfce-settings menu under Extras and at least enable the following plugins: Composite, OpenGL, Window Decoration, Move Window, Resize Window, Place Windows. (You may also want to add such things as Grid for tiling windows and Application Switcher for alt-tabbing windows and so on.) Also make sure that four horizontal workspaces are enabled in the general settings when wanting to use the Cube plugin. To find out what plugins I could/should enable, I used the following sources: How To Set Up Compiz In Xubuntu, Compiz Fusion on Your Desktop: Howto Ubuntu (Video Series), Xubuntu + Compiz = Pretty pretty Xubuntu
     Press Alt+F2 again and enter compiz --replace to find out if everything works correctly before adding it to the Autostart Applications or changing any statup system files. If there are any problems, a simple logout/reboot will deactivate it again.
     You may have to use the command bash -c "sleep 2; compiz --replace" in the Autostart Applications, in case it doesn't start with compiz --replace alone. 
+
+
+To start compiz at boot
+
+cd /etc/xdg/autostart/
+cat blueman.desktop 
+sudo cp blueman.desktop compiz.desktop
+sudo vi compiz.desktop 
+
+---
+[Desktop Entry]
+Name=Compiz
+Comment=Compiz
+#Icon=blueman
+Exec=compiz --replace
+Terminal=false
+Type=Application
+#Categories=
+#X-Ubuntu-Gettext-Domain=blueman
+---
